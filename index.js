@@ -18,20 +18,19 @@ const winnerApplicants = {
 }
 
 //Изменил функцию, чтобы результат вллючал и максимальное значение тоже
-getRandomNumberInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const getRandomNumberInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const add0 = number => ("00" + number).slice(-3);
 
-const getWinner = (applicants, winnerObject) => {
+getWinner = (applicants, winnerObject) => {
 
     //отсортированные по возрастанию номерки игроков
-    const playerNumbers = Object.keys(applicants).slice().sort();
+    const playerNumbers = Object.keys(applicants).sort();
     //количество попыток
     let count = 0;
-
+    //Номерок победителя
     let winnerNumber = 0;
     while (!playerNumbers.some(i => Number(i) === (winnerNumber = getRandomNumberInRange(Number(playerNumbers[0]), Number(playerNumbers[playerNumbers.length - 1])))))
         if (count++ === 100) break;
-
-    const add0 = number => ("00" + number).slice(-3);
 
     //count 101, потому что у === приоритет 9, а у ++ 16. То есть сначала сравнит с 100, выйде из while, а потом увеличит до 101.
     return count === 101
