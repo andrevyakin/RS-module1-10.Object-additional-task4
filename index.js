@@ -21,7 +21,7 @@ const winnerApplicants = {
 const getRandomNumberInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 const add0 = number => ("00" + number).slice(-3);
 
-getWinner = (applicants, winnerObject) => {
+const getWinner = (applicants, winnerObject) => {
 
     //отсортированные по возрастанию номерки игроков
     const playerNumbers = Object.keys(applicants).sort();
