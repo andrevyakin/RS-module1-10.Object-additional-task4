@@ -17,6 +17,7 @@ const winnerApplicants = {
     },
 }
 
+//Изменил функцию, чтобы результат вллючал и максимальное значение тоже
 getRandomNumberInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const getWinner = (applicants, winnerObject) => {
@@ -32,6 +33,7 @@ const getWinner = (applicants, winnerObject) => {
 
     const add0 = number => ("00" + number).slice(-3);
 
+    //count 101, потому что у === приоритет 9, а у ++ 16. То есть сначала сравнит с 100, выйде из while, а потом увеличит до 101.
     return count === 101
         ? "В этом розыгрыше призовые номерки не выпали..."
         : {
